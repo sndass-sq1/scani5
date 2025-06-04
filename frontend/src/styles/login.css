@@ -1,0 +1,554 @@
+/* 
+|--------------------------------------------------------------------------
+| Global Styles
+|--------------------------------------------------------------------------
+|
+| These styles set up global defaults for the document, including font
+| smoothing, base font settings, and zeroing out padding and margin for
+| consistent rendering.
+|
+*/
+
+/* 
+|--------------------------------------------------------------------------
+| Table of Contents
+|--------------------------------------------------------------------------
+| 
+| 1. Login Form
+| 2. slick Carousel
+| 3. Stepper 
+| 4. Modal
+| 5. Media Query
+| 
+*/
+
+/* 
+|--------------------------------------------------------------------------
+| 1. Login Flow Classes
+|--------------------------------------------------------------------------
+| 
+|
+*/
+.registration-container::after,
+.registration-container::before {
+    content: '';
+    background: var(--main-color);
+    width: 150px;
+    border-radius: 50%;
+    height: 150px;
+    filter: blur(120px);
+    z-index: -1 !important;
+}
+
+.registration-container::after {
+    position: absolute;
+    top: 0;
+    left: 40%;
+}
+
+.registration-container::before {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.test {
+    font: 700 14px/24px var(--font-family);
+}
+
+.err-label {
+    text-align: start;
+    color: #f06d6d;
+    font: 400 12px/22px var(--font-family);
+    display: block;
+}
+
+.login-form {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    overflow: auto;
+}
+
+.login-form-card {
+    width: 70%;
+    border-radius: 40px;
+    box-shadow: 0px 5px 18px 0px #28293d12;
+    text-align: center;
+    padding: 30px 90px;
+
+    p {
+        font: 400 16px/22px var(--font-family);
+    }
+}
+
+.form-modal {
+    width: 100%;
+    box-shadow: none;
+    padding: 20px 30px;
+
+    .primary-btn {
+        display: flex;
+        gap: 20px;
+    }
+
+    .login-title {
+        font-size: 22px;
+        margin-bottom: 15px;
+        text-align: left;
+        color: var(--bs-dark);
+    }
+
+    input.form-control {
+        height: 52px !important;
+        min-height: inherit;
+    }
+    .form-floating > label {
+        padding: 12px 0.75rem;
+    }
+}
+
+.logo {
+    height: 50px;
+}
+.pwd-eye {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 18px;
+    color: var(--btn-close-color);
+}
+
+.login-title {
+    margin-bottom: 66px;
+    font: 700 32px/40px var(--font-family);
+    color: var(--main-color);
+}
+
+.primary-btn button {
+    width: 100%;
+    height: 46px;
+    border-radius: 8px;
+    font: 600 14px/17px var(--font-family);
+    box-shadow: none;
+    outline: none;
+}
+
+.submit-btn {
+    background-color: var(--btn-color);
+    border: 1px solid var(--btn-color);
+    color: var(--white);
+}
+
+.outline-btn {
+    color: #333333;
+    background-color: var(--white);
+    border: 1px solid #4f4f4f;
+}
+.outline-btn:hover {
+    background-color:rgb(243, 242, 247);
+    border: 1px solid  #4f4f4f;
+}
+.primary-btn .submit-btn:hover {
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+}
+
+.primary-btn button.width-120 {
+    width: 120px;
+    height: 40px;
+}
+
+.primary-btn button.width-120.width-140 {
+    width: 140px;
+}
+.hyper-link {
+    font: 600 18px/22px var(--font-family) !important;
+    color: var(--main-color);
+    cursor: pointer;
+}
+/* 
+|--------------------------------------------------------------------------
+| 2. Carouselw Classes
+|--------------------------------------------------------------------------
+| 
+|
+*/
+.carousel-bg {
+    background-color: var(--main-color);
+    width: 100%;
+    height: calc(100vh - 44px);
+    margin: 22px 0 22px 12px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    width: 100%;
+    .slide-img-wrapper {
+        width: 100%;
+        height: 400px;
+        margin: 0 auto;
+        background-image: url('/public/images/op-bg.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        position: relative;
+    }
+
+    img.slide-img {
+        width: 100%;
+        height: 337px;
+        object-fit: contain;
+        position: absolute;
+        inset: 50% 0 0 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .slide-descpt p {
+        color: var(--white);
+        max-width: 537px;
+        margin: 20px auto;
+        font: 400 30px/40px var(--font-family);
+        text-align: center;
+        word-wrap: break-word;
+        padding: 0 40px;
+    }
+
+    .slick-dots li {
+        width: 17px;
+        height: 3px;
+        border-radius: 2px;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .slick-dots li.slick-active {
+        background-color: var(--white);
+        width: 36px;
+    }
+
+    .slick-dots li button:before {
+        font-size: 0;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        display: none;
+    }
+}
+
+.op-img img {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 
+|--------------------------------------------------------------------------
+| 3. Stepper Classes
+|--------------------------------------------------------------------------
+| 
+|
+*/
+.QR-scanner-modal .modal-dialog {
+    max-width: inherit;
+    width: 625px !important;
+
+    .modal-content {
+        padding: 50px;
+    }
+}
+
+.stepper-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.stepper-progress {
+    margin: 20px 0;
+}
+
+.step-indicator {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: var(--white);
+    text-align: center;
+    color: var(--black);
+    font: 400 16px/28px var(--font-family);
+}
+
+.step-bar {
+    flex: 1;
+    height: 4px;
+}
+
+.stepper-content p {
+    font: 400 16px/22px var(--font-family) !important;
+    text-align: center;
+    color: var(--text-color-dark) !important;
+}
+
+.auth-button p {
+    font: 400 18px/22px var(--font-family);
+    text-align: center;
+    color: #212529;
+    margin-top: 8px;
+    word-wrap: break-word;
+    width: 116px;
+}
+
+.next-arw {
+    display: inline-block;
+    margin-left: 5px;
+    position: relative;
+    top: -1px;
+}
+
+.next-arw.refresh_icon {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+.primary-btn.stepper-primary-btn button {
+    font: 400 16px/27px var(--font-family);
+}
+
+.primary-btn.stepper-primary-btn .outline-btn {
+    border: 1px solid var(--main-color);
+}
+
+.stepper-content .qr-code-no {
+    color: var(--text-color-dark);
+    font: 600 22px/27px var(--font-family);
+}
+
+.stepper-content .qr-code-no span {
+    color: var(--main-color);
+}
+
+/* 
+|--------------------------------------------------------------------------
+| 3. Modal Classes
+|--------------------------------------------------------------------------
+| 
+|
+*/
+.modal-design {
+    /* p {
+         font: 700 16px/20px var(--font-family);
+         color: #7a69ee; 
+        margin-bottom: 8px !important; 
+    } */
+
+    a {
+        font: 600 16px/20px var(--font-family);
+        color: #757281;
+    }
+}
+
+.modal-header,
+.modal-footer {
+    border: none;
+}
+
+.modal-header {
+    padding: 20px 20px 0;
+}
+
+.modal-footer {
+    padding: 10px 40px 40px;
+}
+
+.btn-close {
+    width: 24px;
+    height: 24px;
+    border-radius: 50% !important;
+    padding: 4px !important;
+    color: var(--btn-close-color);
+    background: var(--btn-close-bg) var(--bs-btn-close-bg) center / 10px auto no-repeat;
+    /* position: absolute; */
+    right: 15px;
+    top: 15px;
+}
+
+.btn-close:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.para-2 {
+    font: 400 18px/22px var(--font-family);
+    color: #333333;
+    word-wrap: break-word;
+}
+
+.para-2 span {
+    color: var(--main-color);
+}
+
+.qr-code {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    margin: 40px auto 0;
+}
+
+.help {
+    font: 600 18px/22px var(--font-family);
+    color: #7a69ee;
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+    display: inline-block;
+    cursor: pointer;
+}
+
+.reg-container {
+    h4 {
+        font: 700 26px/32px var(--font-family);
+    }
+
+    p {
+        font: 400 18px/22px var(--font-family);
+        color: #202020b2;
+    }
+}
+
+.reg-font-weight h4 {
+    font: 800 120px/151px var(--font-family);
+}
+
+/* verification page */
+.totp-card .primary-btn {
+    width: clamp(410px, 30vw, 410px);
+    margin: auto;
+}
+
+.totp-card {
+    padding: 60px 18px;
+}
+
+#para-3 {
+    font: 600 24px/30px var(--font-family);
+    color: #333333;
+}
+
+.otp-bx {
+    margin: 48px auto 0;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    align-items: center;
+}
+
+.otp-bx input {
+    width: 53px;
+    height: 52px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
+    border: 2px solid var(--main-color);
+    background: var(--white);
+    outline: none;
+    font: 400 18px/22px var(--font-family);
+}
+
+.otp-bx input:focus {
+    outline: none;
+    border-color: var(--btn-color);
+    box-shadow: 0 0 8px rgba(130, 128, 255, 0.6);
+}
+
+.admin-notify {
+    font: 400 16px/20px var(--font-family);
+    span {
+        font: 500 16px/20px var(--font-family);
+        color: var(--main-color);
+        text-decoration-color: #7a69ee;
+    }
+}
+
+/* 
+|--------------------------------------------------------------------------
+| 5. Media Classes
+|--------------------------------------------------------------------------
+| 
+|
+*/
+@media (max-width: 1366px) {
+    .slide-descpt p {
+        width: 100% !important;
+        font: 400 24px/32px var(--font-family) !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .slider-wrapper {
+        .slide-img-wrapper {
+            width: 100%;
+            height: 410px;
+        }
+    }
+
+    .slide-descpt p {
+        width: 100% !important;
+    }
+
+    .otp-bx {
+        width: 100%;
+    }
+
+    .login-form-card {
+        padding: 40px;
+    }
+}
+@media (max-width: 1023px) {
+    .registration-container::after {
+        left: 0;
+    }
+}
+@media (max-width: 768px) {
+    .otp-bx input,
+    .totp-card .primary-btn {
+        width: 100%;
+    }
+
+    .totp-card {
+        padding: 60px;
+    }
+}
+
+@media (max-width: 425px) {
+    .login-form-card {
+        padding: 20px;
+        background-color: var(--white);
+    }
+
+    .totp-card {
+        padding: 60px 20px;
+    }
+
+    .totp-card .primary-btn {
+        width: 100%;
+    }
+
+    .otp-bx {
+        gap: 8px;
+    }
+
+    .otp-bx input {
+        width: 100%;
+        height: 46px;
+        padding: 5px;
+    }
+}
