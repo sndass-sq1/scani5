@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   # Database Service
   db:
@@ -16,8 +14,8 @@ services:
       - scani5-network
 
   # Laravel PHP Service
-  php:
-    image: scani5_new
+  backend:
+    image: scani5_backend
     build:
       context: ./backend
       dockerfile: docker/DockerfilePHP
@@ -36,13 +34,14 @@ services:
 
   # React Frontend Service (Production Build with Nginx)
   frontend:
+    image: scani5_frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
       - "3000:80"  # Serves production build on port 3000
     depends_on:
-      - php
+      - backend
     networks:
       - scani5-network
 
