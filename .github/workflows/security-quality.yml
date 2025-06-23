@@ -1,6 +1,6 @@
 name: Security and Quality Checks
 
-on:
+on:...
   push:
     branches: [ main ]
   pull_request:
